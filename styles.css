@@ -1,0 +1,1305 @@
+/* ===============================
+   RESET WAJIB
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: "Georgia", serif;
+}
+
+/* ===============================
+   HEADER
+================================ */
+.header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.65)),
+    url("gambar/header.jpg") center / cover no-repeat;
+}
+
+/* ===============================
+   NAVBAR (FINAL FIX)
+================================ */
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  z-index: 10;
+}
+
+/* LOGO KIRI */
+.nav__logo {
+  position: absolute;
+  left: 48px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+/* MENU BENAR-BENAR TENGAH */
+.nav__links {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%); /* <-- ANGKA INI */
+
+  list-style: none;
+  display: flex;
+  gap: 48px;
+}
+
+
+.nav__links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+/* underline clean */
+.nav__links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 1px;
+  background: #fff;
+  transition: width .3s ease;
+}
+
+.nav__links a:hover::after {
+  width: 100%;
+}
+
+/* ===============================
+   HERO CONTENT
+================================ */
+.header__hero {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.header__content {
+  max-width: 1200px;
+  padding: 0 48px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+/* subtitle */
+.header__subtitle {
+  font-size: 12px;
+  letter-spacing: 4px;
+  opacity: .8;
+  display: block;
+  margin-bottom: 24px;
+}
+
+/* title */
+.header__title {
+  font-size: clamp(72px, 14vw, 160px);
+  font-weight: 700;
+  letter-spacing: 6px;
+  line-height: .9;
+  margin-bottom: 24px;
+}
+
+/* description */
+.header__desc {
+  font-size: 15px;
+  letter-spacing: 1px;
+  max-width: 420px;
+  margin-bottom: 40px;
+}
+
+/* ===============================
+   BUTTON
+================================ */
+.header__cta {
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  padding: 14px 36px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: all .3s ease;
+}
+
+/* primary */
+.btn--primary {
+  background: #fff;
+  color: #111;
+}
+
+.btn--primary:hover {
+  background: #e5e5e5;
+}
+
+/* outline */
+.btn--outline {
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.btn--outline:hover {
+  background: #fff;
+  color: #111;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .nav__links {
+    display: none;
+  }
+
+  .header__title {
+    font-size: 64px;
+  }
+
+  .header__cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ===============================
+   NAV SCROLL ANIMATION
+================================ */
+.nav {
+  transition: background .4s ease, backdrop-filter .4s ease, transform .4s ease;
+}
+
+.nav.scrolled {
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(10px);
+  transform: translateY(-6px);
+}
+
+/* animasi menu */
+.nav__links {
+  transition: transform .4s ease, opacity .4s ease;
+}
+
+.nav.scrolled .nav__links {
+  transform: translate(-50%, -60%);
+  opacity: 0.85;
+}
+
+/* ===============================
+   BANNER BASE
+================================ */
+.banner {
+  width: 100%;
+  background: #f6f6f6;
+  padding: 80px 0;
+}
+
+.banner__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* ===============================
+   CONTENT
+================================ */
+.banner__subtitle {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #777;
+  display: inline-block;
+  margin-bottom: 18px;
+}
+
+.banner__title {
+  font-size: 36px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.banner__title span {
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.banner__description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+  max-width: 460px;
+  margin-bottom: 28px;
+}
+
+/* ===============================
+   PRICE
+================================ */
+.banner__price {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.price__current {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.price__old {
+  font-size: 14px;
+  color: #888;
+  text-decoration: line-through;
+}
+
+/* ===============================
+   COUNTDOWN
+================================ */
+.banner__countdown {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.countdown__item {
+  background: #fff;
+  padding: 14px 18px;
+  min-width: 90px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.countdown__item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,.12);
+}
+
+.countdown__number {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.countdown__label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #777;
+}
+
+/* ===============================
+   CTA BUTTON
+================================ */
+.banner__btn {
+  display: inline-block;
+  padding: 14px 38px;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 2px;
+
+  transition: all .3s ease;
+}
+
+.banner__btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   IMAGE
+================================ */
+.banner__image {
+  width: 100%;
+  height: 420px;
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,.15),
+      rgba(0,0,0,.15)
+    ),
+    url("gambar/promo.jpg") center / cover no-repeat;
+
+  box-shadow: 0 30px 60px rgba(0,0,0,.2);
+
+  transition: transform .6s ease;
+}
+
+.banner__image:hover {
+  transform: scale(1.03);
+}
+
+/* ===============================
+   SCROLL FADE ANIMATION (OPTIONAL)
+================================ */
+.banner__content {
+  animation: fadeUp .8s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .banner__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .banner__image {
+    height: 300px;
+  }
+}
+
+/* ===============================
+   COUNTDOWN FLIP EFFECT
+================================ */
+.countdown__number {
+  display: inline-block;
+  min-width: 32px;
+  perspective: 400px;
+}
+
+.countdown__number.flip {
+  animation: flip .6s ease;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0);
+  }
+  50% {
+    transform: rotateX(-90deg);
+  }
+  100% {
+    transform: rotateX(0);
+  }
+}
+
+/* ===============================
+   COUNTDOWN FLIP 3D (DEEP)
+================================ */
+.countdown__number {
+  display: inline-block;
+  min-width: 36px;
+  font-size: 22px;
+  font-weight: 700;
+  perspective: 800px;
+  transform-style: preserve-3d;
+}
+
+.countdown__number span {
+  display: inline-block;
+  backface-visibility: hidden;
+}
+
+.countdown__number.flip {
+  animation: flip3d .7s cubic-bezier(.4,0,.2,1);
+}
+
+@keyframes flip3d {
+  0% {
+    transform: rotateX(0deg);
+  }
+  45% {
+    transform: rotateX(-90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+/* ===============================
+   COLLECTION SECTION
+================================ */
+.collection {
+  padding: 100px 0;
+  background: #fff;
+}
+
+.collection__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 36px;
+}
+
+/* ===============================
+   PRODUCT ITEM
+================================ */
+.collection__item {
+  background: #f8f8f8;
+  border-radius: 18px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.collection__item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,.12);
+}
+
+/* image */
+.collection__item img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  margin-bottom: 22px;
+
+  transition: transform .4s ease;
+}
+
+.collection__item:hover img {
+  transform: scale(1.05);
+}
+
+/* info */
+.collection__info h4 {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.collection__info p {
+  font-size: 13px;
+  color: #666;
+}
+
+.collection__info .price {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+  margin-right: 8px;
+}
+
+.collection__info del {
+  font-size: 12px;
+}
+
+/* ===============================
+   IMAGE ONLY ITEM
+================================ */
+.collection__item--image {
+  padding: 0;
+  background: none;
+}
+
+.collection__item--image img {
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+/* ===============================
+   PROMO CARD
+================================ */
+.collection__promo {
+  background: #111;
+  color: #fff;
+  border-radius: 18px;
+  padding: 36px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  transition: transform .4s ease;
+}
+
+.collection__promo:hover {
+  transform: translateY(-6px);
+}
+
+.collection__promo h4 {
+  font-size: 22px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.collection__promo p {
+  font-size: 13px;
+  letter-spacing: 2px;
+  opacity: .8;
+}
+
+/* ===============================
+   BANNER CARD
+================================ */
+.collection__banner {
+  background: linear-gradient(
+    to bottom,
+    #1a1a1a,
+    #000
+  );
+  color: #fff;
+  border-radius: 18px;
+  padding: 32px;
+
+  display: flex;
+  align-items: center;
+
+  font-size: 18px;
+  line-height: 1.3;
+  letter-spacing: 2px;
+
+  transition: transform .4s ease;
+}
+
+.collection__banner:hover {
+  transform: translateY(-6px);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 1024px) {
+  .collection__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .collection {
+    padding: 70px 0;
+  }
+
+  .collection__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .collection__item img {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .collection__container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===============================
+   BADGE SALE (AUTO)
+================================ */
+.collection__item {
+  position: relative;
+}
+
+/* SALE badge */
+.collection__item::before {
+  content: "SALE";
+  position: absolute;
+  top: 16px;
+  left: 16px;
+
+  padding: 6px 10px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 700;
+
+  color: #fff;
+  background: #111;
+  border-radius: 999px;
+  z-index: 2;
+}
+
+/* ===============================
+   QUICK ADD TO CART
+================================ */
+.collection__item {
+  position: relative;
+  overflow: hidden;
+}
+
+/* button */
+.quick-cart-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%) translateY(20px);
+
+  padding: 12px 28px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 600;
+
+  background: #111;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+
+  opacity: 0;
+  transition: all .35s ease;
+}
+
+/* show on hover */
+.collection__item:hover .quick-cart-btn {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* hover button */
+.quick-cart-btn:hover {
+  background: #333;
+}
+
+/* ===============================
+   CART SECTION
+================================ */
+.cart {
+  max-width: 900px;
+  margin: 100px auto;
+  padding: 40px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.08);
+}
+
+.cart h2 {
+  font-size: 24px;
+  letter-spacing: 2px;
+  margin-bottom: 32px;
+}
+
+/* ===============================
+   CART ITEM LIST
+================================ */
+#cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 24px;
+  border-radius: 14px;
+  background: #f8f8f8;
+
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.cart-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.12);
+}
+
+/* product info */
+.cart-item strong {
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.cart-item small {
+  font-size: 13px;
+  color: #666;
+}
+
+/* remove button */
+.cart-item .remove-item {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #999;
+  transition: color .3s ease;
+}
+
+.cart-item .remove-item:hover {
+  color: #111;
+}
+
+/* ===============================
+   CART SUMMARY
+================================ */
+.cart-summary {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid #eaeaea;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-summary p {
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.cart-summary strong {
+  font-size: 18px;
+}
+
+/* clear button */
+#clear-cart {
+  padding: 12px 28px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  border: 1px solid #111;
+  background: transparent;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+#clear-cart:hover {
+  background: #111;
+  color: #fff;
+}
+
+/* ===============================
+   EMPTY STATE
+================================ */
+#cart-items p {
+  text-align: center;
+  color: #777;
+  padding: 40px 0;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .cart {
+    margin: 60px 16px;
+    padding: 28px;
+  }
+
+  .cart-summary {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+}
+
+/* ===============================
+   GALLERY SECTION (UPGRADED)
+================================ */
+.gallery {
+  max-width: 1440px;
+  margin: 140px auto;
+  padding: 0 40px;
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 260px;
+  gap: 28px;
+}
+
+/* ===============================
+   GALLERY – PREMIUM MASONRY
+================================ */
+.gallery{
+  --gap: 24px;
+  --row: 10px;
+  --radius: 22px;
+
+  max-width: 1440px;
+  margin: 140px auto;
+  padding: 0 36px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap);
+  grid-auto-rows: var(--row);
+  align-items: start;
+}
+
+/* card */
+.gallery__image{
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: #f4f4f4;
+
+  transform: translateZ(0);
+  transition:
+    transform .6s cubic-bezier(.16,1,.3,1),
+    box-shadow .6s cubic-bezier(.16,1,.3,1);
+}
+
+/* hover lift */
+.gallery__image:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 28px 70px rgba(0,0,0,.18);
+}
+
+/* image – NO CROP */
+.gallery__image img{
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transition:
+    transform .9s cubic-bezier(.16,1,.3,1),
+    filter .6s ease;
+}
+
+/* subtle zoom + tone */
+.gallery__image:hover img{
+  transform: scale(1.04);
+  filter: contrast(1.05) saturate(1.05);
+}
+
+/* ===============================
+   CINEMATIC OVERLAY
+================================ */
+.gallery__image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0) 55%,
+      rgba(0,0,0,.25)
+    );
+
+  opacity: 0;
+  transition: opacity .6s ease;
+}
+
+.gallery__image:hover::after{
+  opacity: 1;
+}
+
+/* ===============================
+   SCROLL REVEAL (CSS PART)
+================================ */
+.gallery__image{
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.gallery__image.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 1100px){
+  .gallery{ grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px){
+  .gallery{
+    grid-template-columns: repeat(2, 1fr);
+    --gap: 16px;
+    --radius: 18px;
+  }
+}
+
+@media (max-width: 480px){
+  .gallery{
+    grid-template-columns: 1fr;
+  }
+}
+
+.cursor-view{
+  background: var(--cursor-color, rgba(0,0,0,.65));
+}
+
+/* ===============================
+   FOOTER BASE
+================================ */
+.footer {
+  background: #0f0f0f;
+  color: #e5e5e5;
+  padding-top: 80px;
+}
+
+/* ===============================
+   CONTAINER
+================================ */
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px 60px;
+
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 80px;
+}
+
+/* ===============================
+   BRAND
+================================ */
+.footer__logo {
+  font-size: 20px;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+}
+
+.footer__tagline {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #9ca3af;
+  max-width: 320px;
+}
+
+/* ===============================
+   LINKS
+================================ */
+.footer__links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.footer__col h4 {
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+  color: #fff;
+}
+
+.footer__col ul {
+  list-style: none;
+}
+
+.footer__col li {
+  margin-bottom: 12px;
+}
+
+.footer__col a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #9ca3af;
+  transition: color .3s ease, transform .3s ease;
+}
+
+.footer__col a:hover {
+  color: #fff;
+  transform: translateX(4px);
+}
+
+/* ===============================
+   SOCIALS
+================================ */
+.footer__socials {
+  display: flex;
+  gap: 18px;
+}
+
+.footer__socials a {
+  font-size: 18px;
+  color: #9ca3af;
+  transition: color .3s ease, transform .3s ease;
+}
+
+.footer__socials a:hover {
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* ===============================
+   FOOTER BOTTOM
+================================ */
+.footer__bottom {
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding: 24px 32px;
+  text-align: center;
+}
+
+.footer__bottom p {
+  font-size: 13px;
+  color: #9ca3af;
+  letter-spacing: 1px;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 900px) {
+  .footer__container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .footer__links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .footer__links {
+    grid-template-columns: 1fr;
+  }
+
+  .footer {
+    padding-top: 60px;
+  }
+}
+
+body {
+  -webkit-user-select: none; /* Chrome, Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge lama */
+  user-select: none;         /* Standard */
+}
+
+/* =========================
+   CART – FINAL CLEAN
+========================= */
+
+.cart {
+  max-width: 900px;
+  margin: 120px auto;
+  padding: 48px 56px;
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.08);
+}
+
+/* title */
+.cart-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 44px;
+}
+
+/* =========================
+   ITEM LIST
+========================= */
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ITEM (TIPIS & PANJANG) */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 16px 26px;              /* KUNCI: kecil */
+  background: #f6f6f6;
+  border-radius: 16px;
+}
+
+/* kiri */
+.cart-item strong {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.cart-item small {
+  font-size: 13px;
+  color: #666;
+}
+
+/* kanan (X) */
+.cart-item .remove-item {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #999;
+}
+
+/* =========================
+   DIVIDER
+========================= */
+
+.cart-summary {
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid #e6e6e6;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* total kiri */
+.total-row {
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  gap: 10px;
+}
+
+#cart-total {
+  font-weight: 600;
+}
+
+/* =========================
+   PAYMENT BUTTON (TIPIS)
+========================= */
+
+.btn-payment {
+  height: 44px;
+  min-width: 420px;          /* PANJANG kaya referensi */
+  border-radius: 999px;
+
+  border: none;
+  background: #111;
+  color: #fff;
+
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.cart-items p {
+  text-align: center;
+  padding: 32px 0;
+  color: #777;
+  font-size: 15px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .cart {
+    margin: 70px 16px;
+    padding: 32px;
+  }
+
+  .cart-summary {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .btn-payment {
+    min-width: 100%;
+  }
+}
+
+.cart .btn-payment {
+  position: relative;
+  overflow: hidden;
+}
+
+.cart .btn-payment::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,0.25),
+    transparent 70%
+  );
+}
+
+.cart .btn-payment:hover::after {
+  animation: shimmer 1.2s ease;
+}
+
+@keyframes shimmer {
+  100% {
+    left: 120%;
+  }
+}
+
+.cart .btn-payment:active {
+  transform: translateY(1px) scale(0.985);
+  box-shadow: 0 6px 16px rgba(0,0,0,.25);
+}
+
+.cart .btn-payment {
+  position: relative;
+}
+
+.cart .btn-payment span {
+  display: inline-block;
+  transition: transform .25s ease, letter-spacing .25s ease;
+}
+
+/* HOVER (sebelum klik) */
+.cart .btn-payment:hover span {
+  transform: translateY(-1px);
+  letter-spacing: 3.5px;
+}
+
+.cart .btn-payment::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255,255,255,0.08);
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+
+.cart .btn-payment:hover::before {
+  opacity: 1;
+}
